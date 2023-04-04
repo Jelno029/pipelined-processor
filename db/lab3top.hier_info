@@ -1,0 +1,428 @@
+|buffer_MEM_WB
+i_wb_RegWrite => mydff:ctrlBit1.i_d
+i_wb_MemToReg => mydff:ctrlBit0.i_d
+i_dataMem[0] => enreg8bit:dataMemory.i_pinput[0]
+i_dataMem[1] => enreg8bit:dataMemory.i_pinput[1]
+i_dataMem[2] => enreg8bit:dataMemory.i_pinput[2]
+i_dataMem[3] => enreg8bit:dataMemory.i_pinput[3]
+i_dataMem[4] => enreg8bit:dataMemory.i_pinput[4]
+i_dataMem[5] => enreg8bit:dataMemory.i_pinput[5]
+i_dataMem[6] => enreg8bit:dataMemory.i_pinput[6]
+i_dataMem[7] => enreg8bit:dataMemory.i_pinput[7]
+i_aluRes[0] => enreg8bit:aluResult.i_pinput[0]
+i_aluRes[1] => enreg8bit:aluResult.i_pinput[1]
+i_aluRes[2] => enreg8bit:aluResult.i_pinput[2]
+i_aluRes[3] => enreg8bit:aluResult.i_pinput[3]
+i_aluRes[4] => enreg8bit:aluResult.i_pinput[4]
+i_aluRes[5] => enreg8bit:aluResult.i_pinput[5]
+i_aluRes[6] => enreg8bit:aluResult.i_pinput[6]
+i_aluRes[7] => enreg8bit:aluResult.i_pinput[7]
+i_destAddr[0] => enreg5bit:destAddress.i_pinput[0]
+i_destAddr[1] => enreg5bit:destAddress.i_pinput[1]
+i_destAddr[2] => enreg5bit:destAddress.i_pinput[2]
+i_destAddr[3] => enreg5bit:destAddress.i_pinput[3]
+i_destAddr[4] => enreg5bit:destAddress.i_pinput[4]
+i_enload => mydff:ctrlBit0.i_en
+i_enload => mydff:ctrlBit1.i_en
+i_enload => enreg8bit:dataMemory.i_enload
+i_enload => enreg8bit:aluResult.i_enload
+i_enload => enreg5bit:destAddress.i_enload
+i_clk => mydff:ctrlBit0.i_clk
+i_clk => mydff:ctrlBit1.i_clk
+i_clk => enreg8bit:dataMemory.i_clk
+i_clk => enreg8bit:aluResult.i_clk
+i_clk => enreg5bit:destAddress.i_clk
+i_clr => mydff:ctrlBit0.i_clr
+i_clr => mydff:ctrlBit1.i_clr
+o_wb_RegWrite <= mydff:ctrlBit1.o_q
+o_wb_MemToReg <= mydff:ctrlBit0.o_q
+o_dataMem[0] <= enreg8bit:dataMemory.o_poutput[0]
+o_dataMem[1] <= enreg8bit:dataMemory.o_poutput[1]
+o_dataMem[2] <= enreg8bit:dataMemory.o_poutput[2]
+o_dataMem[3] <= enreg8bit:dataMemory.o_poutput[3]
+o_dataMem[4] <= enreg8bit:dataMemory.o_poutput[4]
+o_dataMem[5] <= enreg8bit:dataMemory.o_poutput[5]
+o_dataMem[6] <= enreg8bit:dataMemory.o_poutput[6]
+o_dataMem[7] <= enreg8bit:dataMemory.o_poutput[7]
+o_aluRes[0] <= enreg8bit:aluResult.o_poutput[0]
+o_aluRes[1] <= enreg8bit:aluResult.o_poutput[1]
+o_aluRes[2] <= enreg8bit:aluResult.o_poutput[2]
+o_aluRes[3] <= enreg8bit:aluResult.o_poutput[3]
+o_aluRes[4] <= enreg8bit:aluResult.o_poutput[4]
+o_aluRes[5] <= enreg8bit:aluResult.o_poutput[5]
+o_aluRes[6] <= enreg8bit:aluResult.o_poutput[6]
+o_aluRes[7] <= enreg8bit:aluResult.o_poutput[7]
+o_destAddr[0] <= enreg5bit:destAddress.o_poutput[0]
+o_destAddr[1] <= enreg5bit:destAddress.o_poutput[1]
+o_destAddr[2] <= enreg5bit:destAddress.o_poutput[2]
+o_destAddr[3] <= enreg5bit:destAddress.o_poutput[3]
+o_destAddr[4] <= enreg5bit:destAddress.o_poutput[4]
+
+
+|buffer_MEM_WB|mydff:ctrlBit0
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|mydff:ctrlBit1
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory
+i_pinput[0] => mydff:bit0.i_d
+i_pinput[1] => mydff:bit1.i_d
+i_pinput[2] => mydff:bit2.i_d
+i_pinput[3] => mydff:bit3.i_d
+i_pinput[4] => mydff:bit4.i_d
+i_pinput[5] => mydff:bit5.i_d
+i_pinput[6] => mydff:bit6.i_d
+i_pinput[7] => mydff:bit7.i_d
+i_enload => mydff:bit0.i_en
+i_enload => mydff:bit1.i_en
+i_enload => mydff:bit2.i_en
+i_enload => mydff:bit3.i_en
+i_enload => mydff:bit4.i_en
+i_enload => mydff:bit5.i_en
+i_enload => mydff:bit6.i_en
+i_enload => mydff:bit7.i_en
+i_clk => mydff:bit0.i_clk
+i_clk => mydff:bit1.i_clk
+i_clk => mydff:bit2.i_clk
+i_clk => mydff:bit3.i_clk
+i_clk => mydff:bit4.i_clk
+i_clk => mydff:bit5.i_clk
+i_clk => mydff:bit6.i_clk
+i_clk => mydff:bit7.i_clk
+i_clr => mydff:bit0.i_clr
+i_clr => mydff:bit1.i_clr
+i_clr => mydff:bit2.i_clr
+i_clr => mydff:bit3.i_clr
+i_clr => mydff:bit4.i_clr
+i_clr => mydff:bit5.i_clr
+i_clr => mydff:bit6.i_clr
+i_clr => mydff:bit7.i_clr
+o_poutput[0] <= mydff:bit0.o_q
+o_poutput[1] <= mydff:bit1.o_q
+o_poutput[2] <= mydff:bit2.o_q
+o_poutput[3] <= mydff:bit3.o_q
+o_poutput[4] <= mydff:bit4.o_q
+o_poutput[5] <= mydff:bit5.o_q
+o_poutput[6] <= mydff:bit6.o_q
+o_poutput[7] <= mydff:bit7.o_q
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory|mydff:bit0
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory|mydff:bit1
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory|mydff:bit2
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory|mydff:bit3
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory|mydff:bit4
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory|mydff:bit5
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory|mydff:bit6
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:dataMemory|mydff:bit7
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:aluResult
+i_pinput[0] => mydff:bit0.i_d
+i_pinput[1] => mydff:bit1.i_d
+i_pinput[2] => mydff:bit2.i_d
+i_pinput[3] => mydff:bit3.i_d
+i_pinput[4] => mydff:bit4.i_d
+i_pinput[5] => mydff:bit5.i_d
+i_pinput[6] => mydff:bit6.i_d
+i_pinput[7] => mydff:bit7.i_d
+i_enload => mydff:bit0.i_en
+i_enload => mydff:bit1.i_en
+i_enload => mydff:bit2.i_en
+i_enload => mydff:bit3.i_en
+i_enload => mydff:bit4.i_en
+i_enload => mydff:bit5.i_en
+i_enload => mydff:bit6.i_en
+i_enload => mydff:bit7.i_en
+i_clk => mydff:bit0.i_clk
+i_clk => mydff:bit1.i_clk
+i_clk => mydff:bit2.i_clk
+i_clk => mydff:bit3.i_clk
+i_clk => mydff:bit4.i_clk
+i_clk => mydff:bit5.i_clk
+i_clk => mydff:bit6.i_clk
+i_clk => mydff:bit7.i_clk
+i_clr => mydff:bit0.i_clr
+i_clr => mydff:bit1.i_clr
+i_clr => mydff:bit2.i_clr
+i_clr => mydff:bit3.i_clr
+i_clr => mydff:bit4.i_clr
+i_clr => mydff:bit5.i_clr
+i_clr => mydff:bit6.i_clr
+i_clr => mydff:bit7.i_clr
+o_poutput[0] <= mydff:bit0.o_q
+o_poutput[1] <= mydff:bit1.o_q
+o_poutput[2] <= mydff:bit2.o_q
+o_poutput[3] <= mydff:bit3.o_q
+o_poutput[4] <= mydff:bit4.o_q
+o_poutput[5] <= mydff:bit5.o_q
+o_poutput[6] <= mydff:bit6.o_q
+o_poutput[7] <= mydff:bit7.o_q
+
+
+|buffer_MEM_WB|enreg8bit:aluResult|mydff:bit0
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:aluResult|mydff:bit1
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:aluResult|mydff:bit2
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:aluResult|mydff:bit3
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:aluResult|mydff:bit4
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:aluResult|mydff:bit5
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:aluResult|mydff:bit6
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg8bit:aluResult|mydff:bit7
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg5bit:destAddress
+i_pinput[0] => mydff:bit0.i_d
+i_pinput[1] => mydff:bit1.i_d
+i_pinput[2] => mydff:bit2.i_d
+i_pinput[3] => mydff:bit3.i_d
+i_pinput[4] => mydff:bit4.i_d
+i_enload => mydff:bit0.i_en
+i_enload => mydff:bit1.i_en
+i_enload => mydff:bit2.i_en
+i_enload => mydff:bit3.i_en
+i_enload => mydff:bit4.i_en
+i_clk => mydff:bit0.i_clk
+i_clk => mydff:bit1.i_clk
+i_clk => mydff:bit2.i_clk
+i_clk => mydff:bit3.i_clk
+i_clk => mydff:bit4.i_clk
+i_clr => mydff:bit0.i_clr
+i_clr => mydff:bit1.i_clr
+i_clr => mydff:bit2.i_clr
+i_clr => mydff:bit3.i_clr
+i_clr => mydff:bit4.i_clr
+o_poutput[0] <= mydff:bit0.o_q
+o_poutput[1] <= mydff:bit1.o_q
+o_poutput[2] <= mydff:bit2.o_q
+o_poutput[3] <= mydff:bit3.o_q
+o_poutput[4] <= mydff:bit4.o_q
+
+
+|buffer_MEM_WB|enreg5bit:destAddress|mydff:bit0
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg5bit:destAddress|mydff:bit1
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg5bit:destAddress|mydff:bit2
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg5bit:destAddress|mydff:bit3
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|buffer_MEM_WB|enreg5bit:destAddress|mydff:bit4
+i_d => int_q.DATAIN
+i_en => int_q.ENA
+i_clk => int_q.CLK
+i_set => int_q.IN0
+i_set => int_q.PRESET
+i_clr => int_q.IN1
+o_q <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+o_qbar <= int_q.DB_MAX_OUTPUT_PORT_TYPE
+
+

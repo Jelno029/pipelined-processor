@@ -1,0 +1,41 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+entity buffer_IF_ID is
+port(
+		i_wb_RegWrite, i_wb_MemToReg: in std_logic;
+		i_enload	:	in std_logic;							-- Load Enable
+		i_clk		:	in std_logic;							-- Clock
+		i_clr		:	in std_logic;							-- Clear
+		o_wb_RegWrite, o_wb_MemToReg: out std_logic); 
+end buffer_IF_ID;
+
+
+architecture rtl of buffer_IF_ID is
+
+component enreg10bit is
+port(
+		i_pinput	:	in std_logic_vector(9 downto 0); -- Parallel In
+		i_enload	:	in std_logic;							-- Load Enable
+		i_clk		:	in std_logic;							-- Clock
+		i_clr		:	in std_logic;							-- Clear
+		o_poutput: 	out std_logic_vector(9 downto 0));
+end component;
+
+component enreg32bit is
+port(
+		i_pinput	:	in std_logic_vector(31 downto 0); -- Parallel In
+		i_enload	:	in std_logic;							-- Load Enable
+		i_clk		:	in std_logic;							-- Clock
+		i_clr		:	in std_logic;							-- Clear
+		o_poutput: 	out std_logic_vector(31 downto 0));
+end component;
+
+
+begin
+
+bit0:mydff port map (i_wb_MemToReg, i_enload, i_clk, '1', i_clr, o_wb_MemToReg);
+bit1:mydff port map (i_wb_RegWrite, i_enload, i_clk, '1', i_clr, o_wb_RegWrite);
+
+
+end rtl;
