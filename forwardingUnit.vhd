@@ -12,10 +12,12 @@ architecture rtl of forwardingUnit is
 
 begin 
 
-	--If (EX/MEM.RegWrite & (EX/MEM.RegisterRd ≠ 0) & (EX/MEM.RegisterRd=ID/EX.RegisterRs)) ForwardA= 10
-	--If (EX/MEM.RegWrite & (EX/MEM.RegisterRd ≠ 0) & (EX/MEM.RegisterRd=ID/EX.RegisterRt)) ForwardB= 10
-	--If (MEM/WB.RegWrite & (MEM/WB.RegisterRd ≠ 0) & (MEM/WB.RegisterRd=ID/EX.RegisterRs)) ForwardA= 01
-	--If (MEM/WB.RegWrite & (MEM/WB.RegisterRd ≠ 0) & (MEM/WB.RegisterRd=ID/EX.RegisterRt)) ForwardB= 01
+	--If (EX/MEM.RegWrite & (EX/MEM.RegisterRd ≠ 0) & (EX/MEM.RegisterRd=ID/EX.RegisterRs)) 			ForwardA= 10
+	--If (EX/MEM.RegWrite & (EX/MEM.RegisterRd ≠ 0) & (EX/MEM.RegisterRd=ID/EX.RegisterRt)) 			ForwardB= 10
+	--If (MEM/WB.RegWrite & (MEM/WB.RegisterRd ≠ 0) & and not(EX/MEM.RegWrite and (EX/MEM.RegisterRd ≠ 0)
+			--and (EX/MEM.RegisterRd ≠ ID/EX.RegisterRs)) & (MEM/WB.RegisterRd=ID/EX.RegisterRs)) 		ForwardA= 01
+	--If (MEM/WB.RegWrite & (MEM/WB.RegisterRd ≠ 0) & and not(EX/MEM.RegWrite and (EX/MEM.RegisterRd ≠ 0) 
+			--and (EX/MEM.RegisterRd ≠ ID/EX.RegisterRt)) & (MEM/WB.RegisterRd=ID/EX.RegisterRt)) 		ForwardB= 01
 	
 end rtl;
 
@@ -27,31 +29,31 @@ process(i_ex_mem_RegWrite, i_ex_mem_Rd, i_mem_wb_RegWrite, i_mem_wb_Rd, i_id_ex_
 		if ((i_ex_mem_RegWrite = '1') 
 			and (i_ex_mem_Rd /= "00000") 
 			and (i_ex_mem_Rd = i_id_ex_Rs)) then
-				o_forwardA <= b"10"; 
+				o_forwardA <= "10"; 
 				
 		elsif ((i_mem_wb_RegWrite = '1') 
 			and (i_mem_wb_Rd /= "00000") 
 			and not(i_ex_mem_RegWrite = '1' and (i_ex_mem_Rd /= "00000")
 				and (i_ex_mem_Rd = i_id_ex_Rs))
 			and (i_mem_wb_Rd = i_id_ex_Rs)) then
-				o_forwardA <= b"01"; 
+				o_forwardA <= "01"; 
 		else 
-			o_forwardA <= b"00";
+			o_forwardA <= "00";
 		end if;
 		
 		if ((i_ex_mem_RegWrite = '1') 
 			and (i_ex_mem_Rd /= "00000") 
 			and (i_ex_mem_Rd = i_id_ex_Rt)) then
-				o_forwardB <= b"10"; 
+				o_forwardB <= "10"; 
 				
 		elsif ((i_mem_wb_RegWrite = '1')
 			and (i_mem_wb_Rd /= "00000") 
 				and not(i_ex_mem_RegWrite = '1' and (i_ex_mem_Rd /= "00000")
 				and (i_ex_mem_Rd = i_id_ex_Rt))
 			and (i_mem_wb_Rd = i_id_ex_Rt)) then
-				o_forwardB <= b"01"; 
+				o_forwardB <= "01"; 
 		else 
-			o_forwardB <= b"00";
+			o_forwardB <= "00";
 		end if;
 		
 	
