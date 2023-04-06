@@ -1,0 +1,71 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+entity IF_STAGE is
+port(
+	i_mux1		: in std_logic_vector(9 downto 0);
+	i_mux0		: in std_logic_vector(9 downto 0);
+	i_branchMux	: in std_logic;
+	i_pc_enable : in std_logic;
+	
+	g_clk			: in std_logic;
+	g_clr			: in std_logic;
+	
+	o_pcplus4		: out std_logic_vector(9 downto 0);
+	o_instruction	: out std_logic_vector(31 downto 0));
+end IF_STAGE;
+
+
+architecture if_rtl of IF_STAGE is
+
+component mux2to1_10bit is
+port(
+		i_0, i_1	:	in std_logic_vector(9 downto 0);		-- 2 inputs, 10 bits
+		i_select	:	in std_logic;								-- 1 selection bit
+		o_output	:	out std_logic_vector(9 downto 0));	-- 1 output
+end component;
+
+component enreg10bit is
+port(
+		i_pinput	:	in std_logic_vector(9 downto 0); -- Parallel In
+		i_enload	:	in std_logic;							-- Load Enable
+		i_clk		:	in std_logic;							-- Clock
+		i_clr		:	in std_logic;							-- Clear
+		o_poutput: 	out std_logic_vector(9 downto 0)); -- Parallel Out
+end component;
+
+component CLA_top is
+port(
+	A, B: in std_logic_vector(9 downto 0);
+	Cin: in std_logic;
+	S: out std_logic_vector(9 downto 0);
+	Cout: out std_logic);
+end component;
+
+-- ========================
+-- LPM ROM DECLARATION HERE
+-- ========================
+
+signal four		: std_logic_vector(9 downto 0):= "0000000100";
+signal muxout	: std_logic;
+signal pcout	: std_logic_vector(9 downto 0);
+signal aluout	: std_logic_vector(9 downto 0);
+signal instr	: std_logic_vector(31 downto 0);
+
+begin
+
+-- COMPONENT INSTANCES
+
+-- MUX
+
+-- PC REGISTER
+
+-- ALU
+
+-- LPM ROM
+
+-- OUTPUT DRIVERS (IF NEEDED)
+
+end if_rtl;
+
+
