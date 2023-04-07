@@ -3,14 +3,16 @@ USE ieee.std_logic_1164.ALL;
 
 entity buffer_MEM_WB is
 port(
-		i_wb_RegWrite, i_wb_MemToReg: in std_logic; -- Control inputs
+		i_wb_ctrl : in std_logic_vector(1 downto 0); -- Control inputs
+		
 		i_dataMem, i_aluRes: in std_logic_vector(7 downto 0); 
 		i_destAddr: in std_logic_vector(4 downto 0);
 		
 		i_enload	:	in std_logic;							-- Load Enable
 		i_clk		:	in std_logic;							-- Clock
 		i_clr		:	in std_logic;							-- Clear
-		o_wb_RegWrite, o_wb_MemToReg: out std_logic; 
+		
+		o_wb_ctrl: out std_logic_vector(1 downto 0); --Control outputs
 		
 		o_dataMem, o_aluRes: out std_logic_vector(7 downto 0); 
 		o_destAddr: out std_logic_vector(4 downto 0));
@@ -45,8 +47,9 @@ end component;
 
 begin
 
-ctrlBit0:mydff port map (i_wb_MemToReg, i_enload, i_clk, '1', i_clr, o_wb_MemToReg);
-ctrlBit1:mydff port map (i_wb_RegWrite, i_enload, i_clk, '1', i_clr, o_wb_RegWrite);
+RegWrite:mydff port map (i_wb_ctrl(1), i_enload, i_clk, '1', i_clr, o_wb_ctrl(1));
+MemToReg:mydff port map (i_wb_ctrl(0), i_enload, i_clk, '1', i_clr, o_wb_ctrl(0));
+
 dataMemory: enreg8bit port map(i_dataMem, i_enload, i_clk, '1', o_dataMem);
 aluResult: enreg8bit port map(i_aluRes, i_enload, i_clk, '1', o_aluRes);
 destAddress: enreg5bit port map(i_destAddr, i_enload, i_clk, '1', o_destAddr);

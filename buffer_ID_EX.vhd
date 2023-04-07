@@ -3,9 +3,9 @@ USE ieee.std_logic_1164.ALL;
 
 entity buffer_ID_EX is
 port(
-		i_ex_RegDst, i_ex_ALUOp1, i_ex_ALUOp0, i_ex_ALUSrc, 
-		i_m_Branch, i_m_MemRead, i_m_MemWrite,
-		i_wb_RegWrite, i_wb_MemToReg: in std_logic;	-- Control Inputs
+		i_ex_ctrl : in std_logic_vector(3 downto 0); 
+		i_m_ctrl : in std_logic_vector(2 downto 0);
+		i_wb_ctrl : in std_logic_vector(1 downto 0);	-- Control Inputs
 		
 		i_pc: in std_logic_vector(9 downto 0);
 		i_data1, i_data2 : in std_logic_vector(7 downto 0);
@@ -16,8 +16,9 @@ port(
 		i_clk		:	in std_logic;							-- Clock
 		i_clr		:	in std_logic;							-- Clear
 		
-		o_m_Branch, o_m_MemRead, o_m_MemWrite,
-		o_wb_RegWrite, o_wb_MemToReg: out std_logic; --Control outputs
+		o_ex_ctrl : out std_logic_vector(3 downto 0); 
+		o_m_ctrl: out std_logic_vector(2 downto 0);
+		o_wb_ctrl: out std_logic_vector(1 downto 0); --Control outputs
 		
 		o_pc : out std_logic_vector(9 downto 0);
 		o_data1, o_data2 : out std_logic_vector(7 downto 0);
@@ -64,11 +65,17 @@ end component;
 		
 begin
 
-ctrlBit0:mydff port map (i_m_MemWrite, i_enload, i_clk, '1', i_clr, o_m_MemWrite);
-ctrlbit1:mydff port map (i_m_MemRead, i_enload, i_clk, '1', i_clr, o_m_MemRead);
-ctrlbit2:mydff port map (i_m_Branch, i_enload, i_clk, '1', i_clr, o_m_Branch);
-ctrlbit3:mydff port map (i_wb_MemToReg, i_enload, i_clk, '1', i_clr, o_wb_MemToReg);
-ctrlbit4:mydff port map (i_wb_RegWrite, i_enload, i_clk, '1', i_clr, o_wb_RegWrite);
+RegDst:mydff port map (i_ex_ctrl(3), i_enload, i_clk, '1', i_clr, o_ex_ctrl(3));
+ALUOp1:mydff port map (i_ex_ctrl(2), i_enload, i_clk, '1', i_clr, o_ex_ctrl(2));
+ALUOp0:mydff port map (i_ex_ctrl(1), i_enload, i_clk, '1', i_clr, o_ex_ctrl(1));
+ALUSrc:mydff port map (i_ex_ctrl(0), i_enload, i_clk, '1', i_clr, o_ex_ctrl(0));
+
+Branch:mydff port map (i_m_ctrl(2), i_enload, i_clk, '1', i_clr, o_m_ctrl(2));
+MemRead:mydff port map (i_m_ctrl(1), i_enload, i_clk, '1', i_clr, o_m_ctrl(1));
+MemWrite:mydff port map (i_m_ctrl(0), i_enload, i_clk, '1', i_clr, o_m_ctrl(0));
+
+RegWrite:mydff port map (i_wb_ctrl(1), i_enload, i_clk, '1', i_clr, o_wb_ctrl(1));
+MemToReg:mydff port map (i_wb_ctrl(0), i_enload, i_clk, '1', i_clr, o_wb_ctrl(0));
 
 pcplus4:enreg10bit port map(i_pc, i_enload, i_clk, '1', o_pc);
 data1reg:enreg8bit port map(i_data1, i_enload, i_clk, '1', o_data1);

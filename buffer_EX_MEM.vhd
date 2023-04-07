@@ -3,8 +3,9 @@ USE ieee.std_logic_1164.ALL;
 
 entity buffer_EX_MEM is
 port(
-		i_m_Branch, i_m_MemRead, i_m_MemWrite,
-		i_wb_RegWrite, i_wb_MemToReg: in std_logic;	-- Control inputs
+
+		i_m_ctrl : in std_logic_vector(2 downto 0);
+		i_wb_ctrl : in std_logic_vector(1 downto 0);	-- Control Inputs
 		
 		i_aluRes : in std_logic_vector(7 downto 0);
 		i_destAddr : in std_logic_vector(4 downto 0);
@@ -13,7 +14,9 @@ port(
 		i_clk		:	in std_logic;							-- Clock
 		i_clr		:	in std_logic;							-- Clear
 		
-		o_wb_RegWrite, o_wb_MemToReg: out std_logic; -- Control outputs
+		o_m_ctrl: out std_logic_vector(2 downto 0);
+		o_wb_ctrl: out std_logic_vector(1 downto 0); --Control outputs
+		
 		o_aluRes : out std_logic_vector(7 downto 0);
 		o_destAddr : out std_logic_vector(4 downto 0));
 end buffer_EX_MEM;
@@ -48,8 +51,13 @@ end component;
 
 begin
 
-ctrlBit0:mydff port map (i_wb_MemToReg, i_enload, i_clk, '1', i_clr, o_wb_MemToReg);
-ctrlBit1:mydff port map (i_wb_RegWrite, i_enload, i_clk, '1', i_clr, o_wb_RegWrite);
+Branch:mydff port map (i_m_ctrl(2), i_enload, i_clk, '1', i_clr, o_m_ctrl(2));
+MemRead:mydff port map (i_m_ctrl(1), i_enload, i_clk, '1', i_clr, o_m_ctrl(1));
+MemWrite:mydff port map (i_m_ctrl(0), i_enload, i_clk, '1', i_clr, o_m_ctrl(0));
+
+RegWrite:mydff port map (i_wb_ctrl(1), i_enload, i_clk, '1', i_clr, o_wb_ctrl(1));
+MemToReg:mydff port map (i_wb_ctrl(0), i_enload, i_clk, '1', i_clr, o_wb_ctrl(0));
+
 aluResult: enreg8bit port map(i_aluRes, i_enload, i_clk, '1', o_aluRes);
 destAddress: enreg5bit port map(i_destAddr, i_enload, i_clk, '1', o_destAddr);
 
