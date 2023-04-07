@@ -1,0 +1,198 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "graphic" (version "1.4"))
+(symbol
+	(rect 128 208 360 320)
+	(text "IF_STAGE" (rect 5 0 59 11)(font "Arial" ))
+	(text "inst" (rect 8 96 26 107)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "i_pcEn" (rect 0 0 35 11)(font "Arial" ))
+		(text "i_pcEn" (rect 21 27 56 38)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "i_brAdd[9..0]" (rect 0 0 62 11)(font "Arial" ))
+		(text "i_brAdd[9..0]" (rect 21 43 83 54)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "i_branchMux" (rect 0 0 64 11)(font "Arial" ))
+		(text "i_branchMux" (rect 21 59 85 70)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "i_clk" (rect 0 0 23 11)(font "Arial" ))
+		(text "i_clk" (rect 21 75 44 86)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "o_pcplus4[9..0]" (rect 0 0 74 11)(font "Arial" ))
+		(text "o_pcplus4[9..0]" (rect 149 27 223 38)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "o_instruction[31..0]" (rect 0 0 92 11)(font "Arial" ))
+		(text "o_instruction[31..0]" (rect 134 43 226 54)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 216 96))
+	)
+)
+(symbol
+	(rect 512 168 760 376)
+	(text "ID_STAGE" (rect 5 0 60 11)(font "Arial" ))
+	(text "inst1" (rect 8 192 31 203)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "i_hdu_ctlmux" (rect 0 0 66 11)(font "Arial" ))
+		(text "i_hdu_ctlmux" (rect 21 27 87 38)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "i_pcplus4[9..0]" (rect 0 0 70 11)(font "Arial" ))
+		(text "i_pcplus4[9..0]" (rect 21 43 91 54)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "i_instruction[31..0]" (rect 0 0 88 11)(font "Arial" ))
+		(text "i_instruction[31..0]" (rect 21 59 109 70)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "i_writeEn" (rect 0 0 46 11)(font "Arial" ))
+		(text "i_writeEn" (rect 21 75 67 86)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "i_writeReg[4..0]" (rect 0 0 75 11)(font "Arial" ))
+		(text "i_writeReg[4..0]" (rect 21 91 96 102)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "i_writeData[7..0]" (rect 0 0 79 11)(font "Arial" ))
+		(text "i_writeData[7..0]" (rect 21 107 100 118)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "i_clk" (rect 0 0 23 11)(font "Arial" ))
+		(text "i_clk" (rect 21 123 44 134)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "o_hdu_opcode[6..0]" (rect 0 0 95 11)(font "Arial" ))
+		(text "o_hdu_opcode[6..0]" (rect 147 27 242 38)(font "Arial" ))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
+	)
+	(port
+		(pt 248 48)
+		(output)
+		(text "o_hdu_regeq" (rect 0 0 64 11)(font "Arial" ))
+		(text "o_hdu_regeq" (rect 173 43 237 54)(font "Arial" ))
+		(line (pt 248 48)(pt 232 48))
+	)
+	(port
+		(pt 248 64)
+		(output)
+		(text "o_ctl_ex[3..0]" (rect 0 0 64 11)(font "Arial" ))
+		(text "o_ctl_ex[3..0]" (rect 173 59 237 70)(font "Arial" ))
+		(line (pt 248 64)(pt 232 64)(line_width 3))
+	)
+	(port
+		(pt 248 80)
+		(output)
+		(text "o_ctl_m[2..0]" (rect 0 0 62 11)(font "Arial" ))
+		(text "o_ctl_m[2..0]" (rect 175 75 237 86)(font "Arial" ))
+		(line (pt 248 80)(pt 232 80)(line_width 3))
+	)
+	(port
+		(pt 248 96)
+		(output)
+		(text "o_ctl_wb[1..0]" (rect 0 0 67 11)(font "Arial" ))
+		(text "o_ctl_wb[1..0]" (rect 171 91 238 102)(font "Arial" ))
+		(line (pt 248 96)(pt 232 96)(line_width 3))
+	)
+	(port
+		(pt 248 112)
+		(output)
+		(text "o_readData1[7..0]" (rect 0 0 87 11)(font "Arial" ))
+		(text "o_readData1[7..0]" (rect 154 107 241 118)(font "Arial" ))
+		(line (pt 248 112)(pt 232 112)(line_width 3))
+	)
+	(port
+		(pt 248 128)
+		(output)
+		(text "o_readData2[7..0]" (rect 0 0 87 11)(font "Arial" ))
+		(text "o_readData2[7..0]" (rect 154 123 241 134)(font "Arial" ))
+		(line (pt 248 128)(pt 232 128)(line_width 3))
+	)
+	(port
+		(pt 248 144)
+		(output)
+		(text "o_signExtend[7..0]" (rect 0 0 89 11)(font "Arial" ))
+		(text "o_signExtend[7..0]" (rect 152 139 241 150)(font "Arial" ))
+		(line (pt 248 144)(pt 232 144)(line_width 3))
+	)
+	(port
+		(pt 248 160)
+		(output)
+		(text "o_rs[4..0]" (rect 0 0 44 11)(font "Arial" ))
+		(text "o_rs[4..0]" (rect 190 155 234 166)(font "Arial" ))
+		(line (pt 248 160)(pt 232 160)(line_width 3))
+	)
+	(port
+		(pt 248 176)
+		(output)
+		(text "o_rt[4..0]" (rect 0 0 42 11)(font "Arial" ))
+		(text "o_rt[4..0]" (rect 192 171 234 182)(font "Arial" ))
+		(line (pt 248 176)(pt 232 176)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 192))
+	)
+)
