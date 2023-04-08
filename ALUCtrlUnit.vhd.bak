@@ -5,7 +5,8 @@ entity ALUCtrlUnit is
 port(
 	i_F: in std_logic_vector(5 downto 0);
 	i_ALUOp: in std_logic_vector(1 downto 0);
-	o_op: out std_logic_vector(2 downto 0));
+	o_op: out std_logic_vector(2 downto 0)
+);
 end ALUCtrlUnit;
 
 architecture rtl of ALUCtrlUnit is

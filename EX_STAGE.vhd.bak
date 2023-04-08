@@ -1,0 +1,46 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+entity EX_STAGE is
+port(
+		i_ctl_ex		: in std_logic_vector(3 downto 0);
+		i_readData1	: in std_logic_vector(7 downto 0);
+		i_readData2	: in std_logic_vector(7 downto 0);
+		i_signExt	: in std_logic_vector(7 downto 0);
+		
+		o_aluZero	: out std_logic;
+		o_aluOut		: out std_logic_vector(7 downto 0);
+		o_writeData	: out std_logic_vector(7 downto 0));
+end EX_STAGE;
+
+architecture ex_rtl of EX_STAGE is
+
+component alu8bit is
+
+end component;
+
+component aluCtrlUnit is
+
+end component;
+
+component mux2to1_8bit is
+
+end component;
+
+component mux2to1_5bit is
+
+end component;
+
+component mux3to1_8bit is
+
+end component;
+
+-- signals
+
+
+begin
+
+
+
+end ex_rtl;
+

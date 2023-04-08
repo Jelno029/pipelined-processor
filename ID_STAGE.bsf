@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 264 224)
+	(rect 16 16 264 256)
 	(text "ID_STAGE" (rect 5 0 54 12)(font "Arial" ))
-	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+	(text "inst" (rect 8 224 20 236)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -89,8 +89,8 @@ applicable agreement for further details.
 	(port
 		(pt 248 64)
 		(output)
-		(text "o_ctl_ex[3..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "o_ctl_ex[3..0]" (rect 173 59 227 71)(font "Arial" ))
+		(text "o_ctl_wb[1..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "o_ctl_wb[1..0]" (rect 173 59 227 71)(font "Arial" ))
 		(line (pt 248 64)(pt 232 64)(line_width 3))
 	)
 	(port
@@ -103,8 +103,8 @@ applicable agreement for further details.
 	(port
 		(pt 248 96)
 		(output)
-		(text "o_ctl_wb[1..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "o_ctl_wb[1..0]" (rect 173 91 227 103)(font "Arial" ))
+		(text "o_ctl_ex[3..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "o_ctl_ex[3..0]" (rect 173 91 227 103)(font "Arial" ))
 		(line (pt 248 96)(pt 232 96)(line_width 3))
 	)
 	(port
@@ -124,8 +124,8 @@ applicable agreement for further details.
 	(port
 		(pt 248 144)
 		(output)
-		(text "o_signExtend[7..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "o_signExtend[7..0]" (rect 153 139 227 151)(font "Arial" ))
+		(text "o_signExt[7..0]" (rect 0 0 60 12)(font "Arial" ))
+		(text "o_signExt[7..0]" (rect 167 139 227 151)(font "Arial" ))
 		(line (pt 248 144)(pt 232 144)(line_width 3))
 	)
 	(port
@@ -142,7 +142,14 @@ applicable agreement for further details.
 		(text "o_rt[4..0]" (rect 190 171 227 183)(font "Arial" ))
 		(line (pt 248 176)(pt 232 176)(line_width 3))
 	)
+	(port
+		(pt 248 192)
+		(output)
+		(text "o_rd[4..0]" (rect 0 0 40 12)(font "Arial" ))
+		(text "o_rd[4..0]" (rect 187 187 227 199)(font "Arial" ))
+		(line (pt 248 192)(pt 232 192)(line_width 3))
+	)
 	(drawing
-		(rectangle (rect 16 16 232 192)(line_width 1))
+		(rectangle (rect 16 16 232 224)(line_width 1))
 	)
 )

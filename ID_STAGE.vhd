@@ -16,14 +16,15 @@ port(
 		o_hdu_opcode	: out std_logic_vector(6 downto 0);
 		o_hdu_regeq		: out std_logic;
 		
-		o_ctl_ex			: out std_logic_vector(3 downto 0);
-		o_ctl_m			: out std_logic_vector(2 downto 0);
 		o_ctl_wb			: out std_logic_vector(1 downto 0);
+		o_ctl_m			: out std_logic_vector(2 downto 0);
+		o_ctl_ex			: out std_logic_vector(3 downto 0);
+		
 		
 		o_readData1		: out std_logic_vector(7 downto 0);
 		o_readData2		: out std_logic_vector(7 downto 0);
-		o_signExtend	: out std_logic_vector(7 downto 0);
-		o_rs, o_rt		: out std_logic_vector(4 downto 0)); -- ! RT will connect to two inputs in the next buffer !
+		o_signExt		: out std_logic_vector(7 downto 0);
+		o_rs,o_rt,o_rd : out std_logic_vector(4 downto 0)); -- ! RT will connect to two inputs in the next buffer !
 end ID_STAGE;
 		--o_ex_RegDst		: out std_logic;
 		--o_ex_ALUOp1		: out std_logic;
@@ -78,12 +79,12 @@ end component;
 -- signals here
 
 signal opcode		:	std_logic_vector(5 downto 0);	-- inst(31-26)
-signal rs, rt		:	std_logic_vector(4 downto 0); -- inst(25-21) -- inst(20-16)
+signal rs, rt, rd	:	std_logic_vector(4 downto 0); -- inst(25-21) -- inst(20-16) -- inst(15-11)
 signal readReg1	:	std_logic_vector(2 downto 0);	-- 3-bit equivalents of rs, rt
 signal readReg2	:	std_logic_vector(2 downto 0); -- ^^^
-signal rd			:	std_logic_vector(15 downto 0);-- inst(15-0)
-signal rdSignExt	:	std_logic_vector(7 downto 0);	-- inst(7-0)
-signal rdShifted	:	std_logic_vector(9 downto 0);	-- rdSignExt shift twice to the left
+signal addField	:	std_logic_vector(15 downto 0);-- inst(15-0)
+signal afSignExt	:	std_logic_vector(7 downto 0);	-- inst(7-0)
+signal afShifted	:	std_logic_vector(9 downto 0);	-- rdSignExt shift twice to the left
 signal readData1	:	std_logic_vector(7 downto 0);
 signal readData2	:	std_logic_vector(7 downto 0);
 signal clr, regEqual	:	std_logic;
@@ -102,17 +103,19 @@ rs <= i_instruction(25 downto 21);
 rt <= i_instruction(20 downto 16);
 readReg1 <= rs(2 downto 0);
 readReg2 <= rd(2 downto 0);
-rd <= i_instruction(15 downto 0);
+rd <= i_instruction(15 downto 11);
+addField <= i_instruction(15 downto 0);
+
 
 -- Sign extension and left-shift:
-rdSignExt <= rd(7 downto 0);
-rdShifted(9 downto 2) <= rd;
-rdShifted(1 downto 0) <= "00";
+afSignExt <= addField(7 downto 0);
+afShifted(9 downto 2) <= afSignExt;
+afShifted(1 downto 0) <= "00";
 
 -- register file:
 regFile:registerFile	 port map (i_writeEn, readReg1, readReg2, i_writeReg, i_writeData, i_clk, clr, readData1, readData2);
 -- adder:
-brAdder:CLA_top 		 port map (i_pcplus4, rdShifted, '0', branchAddress);
+brAdder:CLA_top 		 port map (i_pcplus4, afShifted, '0', branchAddress);
 -- control unit:
 ctlUnit:ControlUnit	 port map (opcode, ctlVector(8), ctlVector(5), ctlVector(0), ctlVector(1), ctlVector(3), ctlVector(2), ctlVector(4), ctlVector(7 downto 6));
 -- flush mux:
@@ -132,9 +135,10 @@ regEqual <= not(compData(7) or compData(6) or compData(5) or compData(4) or comp
 		
 		o_readData1		<= readData1;
 		o_readData2		<= readData2;
-		o_signExtend	<= rdSignExt;
+		o_signExt		<= afSignExt;
 		
 		o_rs				<= rs;
 		o_rt				<= rt;
+		o_rd				<= rd;
 
 end id_rtl;
