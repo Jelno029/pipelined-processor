@@ -1,5 +1,7 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="lab3top">
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab3top|IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_89a1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|lab3top|MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_cbi1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

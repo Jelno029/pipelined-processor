@@ -1,0 +1,2012 @@
+Analysis & Synthesis report for lab3top
+Sun Apr  9 09:11:21 2023
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Source assignments for IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated
+ 13. Source assignments for MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated
+ 14. Parameter Settings for User Entity Instance: IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component
+ 15. Parameter Settings for User Entity Instance: MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:0:reg32bit"
+ 18. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:1:reg32bit"
+ 19. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:2:reg32bit"
+ 20. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:3:reg32bit"
+ 21. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:4:reg32bit"
+ 22. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:5:reg32bit"
+ 23. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:6:reg32bit"
+ 24. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:7:reg32bit"
+ 25. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:8:reg32bit"
+ 26. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:9:reg32bit"
+ 27. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:10:reg32bit"
+ 28. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:11:reg32bit"
+ 29. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:12:reg32bit"
+ 30. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:13:reg32bit"
+ 31. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:14:reg32bit"
+ 32. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:15:reg32bit"
+ 33. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:16:reg32bit"
+ 34. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:17:reg32bit"
+ 35. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:18:reg32bit"
+ 36. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:19:reg32bit"
+ 37. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:20:reg32bit"
+ 38. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:21:reg32bit"
+ 39. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:22:reg32bit"
+ 40. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:23:reg32bit"
+ 41. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:24:reg32bit"
+ 42. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:25:reg32bit"
+ 43. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:26:reg32bit"
+ 44. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:27:reg32bit"
+ 45. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:28:reg32bit"
+ 46. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:29:reg32bit"
+ 47. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:30:reg32bit"
+ 48. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:31:reg32bit"
+ 49. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit9"
+ 50. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit8"
+ 51. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit7"
+ 52. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit6"
+ 53. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit5"
+ 54. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit4"
+ 55. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit3"
+ 56. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit2"
+ 57. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit1"
+ 58. Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit0"
+ 59. Port Connectivity Checks: "EX_STAGE:inst6|alu8bit:myalu|mux8to1_8bit:mux"
+ 60. Port Connectivity Checks: "EX_STAGE:inst6|alu8bit:myalu|CLA_top2:suber"
+ 61. Port Connectivity Checks: "EX_STAGE:inst6|alu8bit:myalu|CLA_top2:adder"
+ 62. Port Connectivity Checks: "buffer_EX_MEM:inst1|enreg5bit:destAddress"
+ 63. Port Connectivity Checks: "buffer_EX_MEM:inst1|enreg8bit:writeData"
+ 64. Port Connectivity Checks: "buffer_EX_MEM:inst1|enreg8bit:aluResult"
+ 65. Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:aluZero"
+ 66. Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:MemToReg"
+ 67. Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:RegWrite"
+ 68. Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:MemWrite"
+ 69. Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:MemRead"
+ 70. Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:Branch"
+ 71. Port Connectivity Checks: "buffer_MEM_WB:inst7|enreg5bit:destAddress"
+ 72. Port Connectivity Checks: "buffer_MEM_WB:inst7|enreg8bit:aluResult"
+ 73. Port Connectivity Checks: "buffer_MEM_WB:inst7|enreg8bit:dataMemory"
+ 74. Port Connectivity Checks: "buffer_MEM_WB:inst7|mydff:MemToReg"
+ 75. Port Connectivity Checks: "buffer_MEM_WB:inst7|mydff:RegWrite"
+ 76. Port Connectivity Checks: "ID_STAGE:inst14|mux2to1_9bit:flushMux"
+ 77. Port Connectivity Checks: "ID_STAGE:inst14|CLA_top:brAdder"
+ 78. Port Connectivity Checks: "ID_STAGE:inst14|registerFile:regFile"
+ 79. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRd"
+ 80. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRt2"
+ 81. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRt1"
+ 82. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit4"
+ 83. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit3"
+ 84. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit2"
+ 85. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit1"
+ 86. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit0"
+ 87. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs"
+ 88. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg8bit:signExtBuf"
+ 89. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg8bit:data2reg"
+ 90. Port Connectivity Checks: "buffer_ID_EX:inst4|enreg8bit:data1reg"
+ 91. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:MemToReg"
+ 92. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:RegWrite"
+ 93. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:MemWrite"
+ 94. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:MemRead"
+ 95. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:Branch"
+ 96. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:ALUSrc"
+ 97. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:ALUOp0"
+ 98. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:ALUOp1"
+ 99. Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:RegDst"
+100. Port Connectivity Checks: "IF_STAGE:inst|CLA_top:if_alu"
+101. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit7"
+102. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit6"
+103. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit5"
+104. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit4"
+105. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit3"
+106. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit2"
+107. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit1"
+108. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit0"
+109. Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc"
+110. Port Connectivity Checks: "IF_STAGE:inst|mux2to1_10bit:if_mux"
+111. Elapsed Time Per Partition
+112. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Apr  9 09:11:21 2023           ;
+; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; lab3top                                         ;
+; Top-level Entity Name              ; lab3top                                         ;
+; Family                             ; Cyclone IV GX                                   ;
+; Total logic elements               ; 0                                               ;
+;     Total combinational functions  ; 0                                               ;
+;     Dedicated logic registers      ; 0                                               ;
+; Total registers                    ; 0                                               ;
+; Total pins                         ; 2                                               ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total GXB Receiver Channel PCS     ; 0                                               ;
+; Total GXB Receiver Channel PMA     ; 0                                               ;
+; Total GXB Transmitter Channel PCS  ; 0                                               ;
+; Total GXB Transmitter Channel PMA  ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; lab3top            ; lab3top            ;
+; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 16     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                              ; Library ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------+---------+
+; registerFile.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/registerFile.vhd               ;         ;
+; PartialAdder.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/PartialAdder.vhd               ;         ;
+; mydff.vhd                        ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/mydff.vhd                      ;         ;
+; mux8to1_8bit.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/mux8to1_8bit.vhd               ;         ;
+; mux2to1_10bit.vhd                ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/mux2to1_10bit.vhd              ;         ;
+; mux2to1_9bit.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/mux2to1_9bit.vhd               ;         ;
+; mux2to1_8bit.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/mux2to1_8bit.vhd               ;         ;
+; lab3top.bdf                      ; yes             ; User Block Diagram/Schematic File      ; /home/joe/Repositories/pipelined-processor/lab3top.bdf                    ;         ;
+; instMemory.vhd                   ; yes             ; User Wizard-Generated File             ; /home/joe/Repositories/pipelined-processor/instMemory.vhd                 ;         ;
+; IF_STAGE.vhd                     ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/IF_STAGE.vhd                   ;         ;
+; ID_STAGE.vhd                     ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/ID_STAGE.vhd                   ;         ;
+; forwardingUnit.vhd               ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/forwardingUnit.vhd             ;         ;
+; enreg32bit.vhd                   ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/enreg32bit.vhd                 ;         ;
+; enreg10bit.vhd                   ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/enreg10bit.vhd                 ;         ;
+; enreg8bit.vhd                    ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/enreg8bit.vhd                  ;         ;
+; enreg5bit.vhd                    ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/enreg5bit.vhd                  ;         ;
+; decoder3to8.vhd                  ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/decoder3to8.vhd                ;         ;
+; ControlUnit.vhd                  ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/ControlUnit.vhd                ;         ;
+; CLA_top2.vhd                     ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/CLA_top2.vhd                   ;         ;
+; CLA_top.vhd                      ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/CLA_top.vhd                    ;         ;
+; buffer_MEM_WB.vhd                ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/buffer_MEM_WB.vhd              ;         ;
+; buffer_IF_ID.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/buffer_IF_ID.vhd               ;         ;
+; buffer_ID_EX.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/buffer_ID_EX.vhd               ;         ;
+; buffer_EX_MEM.vhd                ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/buffer_EX_MEM.vhd              ;         ;
+; ALUCtrlUnit.vhd                  ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/ALUCtrlUnit.vhd                ;         ;
+; alu8bit.vhd                      ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/alu8bit.vhd                    ;         ;
+; mux3to1_8bit.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/mux3to1_8bit.vhd               ;         ;
+; EX_STAGE.vhd                     ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/EX_STAGE.vhd                   ;         ;
+; mux2to1_5bit.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/mux2to1_5bit.vhd               ;         ;
+; datamem.vhd                      ; yes             ; User Wizard-Generated File             ; /home/joe/Repositories/pipelined-processor/datamem.vhd                    ;         ;
+; MEM_STAGE.vhd                    ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/MEM_STAGE.vhd                  ;         ;
+; hazardDetect.vhd                 ; yes             ; User VHDL File                         ; /home/joe/Repositories/pipelined-processor/hazardDetect.vhd               ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_89a1.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/joe/Repositories/pipelined-processor/db/altsyncram_89a1.tdf         ;         ;
+; instructionMem.mif               ; yes             ; Auto-Found Memory Initialization File  ; /home/joe/Repositories/pipelined-processor/instructionMem.mif             ;         ;
+; db/altsyncram_cbi1.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/joe/Repositories/pipelined-processor/db/altsyncram_cbi1.tdf         ;         ;
+; dataMem.mif                      ; yes             ; Auto-Found Memory Initialization File  ; /home/joe/Repositories/pipelined-processor/dataMem.mif                    ;         ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++--------------------------+------------------+
+; Resource                 ; Usage            ;
++--------------------------+------------------+
+; I/O pins                 ; 2                ;
+; DSP block 9-bit elements ; 0                ;
+; Maximum fan-out node     ; i_clk            ;
+; Maximum fan-out          ; 1                ;
+; Total fan-out            ; 2                ;
+; Average fan-out          ; 0.50             ;
++--------------------------+------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; |lab3top                   ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 2    ; 0            ; |lab3top            ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                   ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------+-----------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                             ; IP Include File                                           ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------+-----------------------------------------------------------+
+; Altera ; ROM: 1-PORT  ; N/A     ; N/A          ; N/A          ; |lab3top|IF_STAGE:inst|instMemory:if_memory ; /home/joe/Repositories/pipelined-processor/instMemory.vhd ;
+; Altera ; RAM: 1-PORT  ; 13.0    ; N/A          ; N/A          ; |lab3top|MEM_STAGE:inst3|datamem:dmem       ; /home/joe/Repositories/pipelined-processor/datamem.vhd    ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------+-----------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                        ;
++--------------------------------------------------------------------------------------+--------------------+
+; Register name                                                                        ; Reason for Removal ;
++--------------------------------------------------------------------------------------+--------------------+
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:0:reg32bit|int_q  ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:1:reg32bit|int_q  ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:2:reg32bit|int_q  ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:3:reg32bit|int_q  ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:4:reg32bit|int_q  ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:5:reg32bit|int_q  ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:6:reg32bit|int_q  ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:7:reg32bit|int_q  ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:11:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:12:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:13:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:14:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:15:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:16:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:17:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:18:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:19:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:20:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:21:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:22:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:23:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:24:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:25:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:26:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:27:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:28:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:29:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:30:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:31:reg32bit|int_q ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit7|int_q                             ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit6|int_q                             ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit5|int_q                             ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit4|int_q                             ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit3|int_q                             ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit2|int_q                             ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit1|int_q                             ; Lost fanout        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit0|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg5bit:destAddress|mydff:bit4|int_q                           ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg5bit:destAddress|mydff:bit3|int_q                           ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg5bit:destAddress|mydff:bit2|int_q                           ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg5bit:destAddress|mydff:bit1|int_q                           ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg5bit:destAddress|mydff:bit0|int_q                           ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:writeData|mydff:bit7|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:writeData|mydff:bit6|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:writeData|mydff:bit5|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:writeData|mydff:bit4|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:writeData|mydff:bit3|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:writeData|mydff:bit2|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:writeData|mydff:bit1|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:writeData|mydff:bit0|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:aluResult|mydff:bit7|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:aluResult|mydff:bit6|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:aluResult|mydff:bit5|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:aluResult|mydff:bit4|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:aluResult|mydff:bit3|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:aluResult|mydff:bit2|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:aluResult|mydff:bit1|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|enreg8bit:aluResult|mydff:bit0|int_q                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|mydff:aluZero|int_q                                              ; Lost fanout        ;
+; buffer_EX_MEM:inst1|mydff:MemToReg|int_q                                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|mydff:RegWrite|int_q                                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|mydff:MemWrite|int_q                                             ; Lost fanout        ;
+; buffer_EX_MEM:inst1|mydff:MemRead|int_q                                              ; Lost fanout        ;
+; buffer_EX_MEM:inst1|mydff:Branch|int_q                                               ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg5bit:destAddress|mydff:bit4|int_q                           ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg5bit:destAddress|mydff:bit3|int_q                           ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg5bit:destAddress|mydff:bit2|int_q                           ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg5bit:destAddress|mydff:bit1|int_q                           ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg5bit:destAddress|mydff:bit0|int_q                           ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:aluResult|mydff:bit7|int_q                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:aluResult|mydff:bit6|int_q                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:aluResult|mydff:bit5|int_q                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:aluResult|mydff:bit4|int_q                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:aluResult|mydff:bit3|int_q                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:aluResult|mydff:bit2|int_q                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:aluResult|mydff:bit1|int_q                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:aluResult|mydff:bit0|int_q                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:dataMemory|mydff:bit7|int_q                            ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:dataMemory|mydff:bit6|int_q                            ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:dataMemory|mydff:bit5|int_q                            ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:dataMemory|mydff:bit4|int_q                            ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:dataMemory|mydff:bit3|int_q                            ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:dataMemory|mydff:bit2|int_q                            ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:dataMemory|mydff:bit1|int_q                            ; Lost fanout        ;
+; buffer_MEM_WB:inst7|enreg8bit:dataMemory|mydff:bit0|int_q                            ; Lost fanout        ;
+; buffer_MEM_WB:inst7|mydff:MemToReg|int_q                                             ; Lost fanout        ;
+; buffer_MEM_WB:inst7|mydff:RegWrite|int_q                                             ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg7|mydff:bit7|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg7|mydff:bit6|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg7|mydff:bit5|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg7|mydff:bit4|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg7|mydff:bit3|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg7|mydff:bit2|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg7|mydff:bit1|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg7|mydff:bit0|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg6|mydff:bit7|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg6|mydff:bit6|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg6|mydff:bit5|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg6|mydff:bit4|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg6|mydff:bit3|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg6|mydff:bit2|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg6|mydff:bit1|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg6|mydff:bit0|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg5|mydff:bit7|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg5|mydff:bit6|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg5|mydff:bit5|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg5|mydff:bit4|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg5|mydff:bit3|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg5|mydff:bit2|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg5|mydff:bit1|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg5|mydff:bit0|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg4|mydff:bit7|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg4|mydff:bit6|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg4|mydff:bit5|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg4|mydff:bit4|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg4|mydff:bit3|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg4|mydff:bit2|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg4|mydff:bit1|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg4|mydff:bit0|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg3|mydff:bit7|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg3|mydff:bit6|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg3|mydff:bit5|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg3|mydff:bit4|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg3|mydff:bit3|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg3|mydff:bit2|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg3|mydff:bit1|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg3|mydff:bit0|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg2|mydff:bit7|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg2|mydff:bit6|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg2|mydff:bit5|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg2|mydff:bit4|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg2|mydff:bit3|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg2|mydff:bit2|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg2|mydff:bit1|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg2|mydff:bit0|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg1|mydff:bit7|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg1|mydff:bit6|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg1|mydff:bit5|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg1|mydff:bit4|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg1|mydff:bit3|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg1|mydff:bit2|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg1|mydff:bit1|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg1|mydff:bit0|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg0|mydff:bit7|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg0|mydff:bit6|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg0|mydff:bit5|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg0|mydff:bit4|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg0|mydff:bit3|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg0|mydff:bit2|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg0|mydff:bit1|int_q                 ; Lost fanout        ;
+; ID_STAGE:inst14|registerFile:regFile|enreg8bit:reg0|mydff:bit0|int_q                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRd|mydff:bit4|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRd|mydff:bit3|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRd|mydff:bit2|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRd|mydff:bit1|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRd|mydff:bit0|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt2|mydff:bit4|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt2|mydff:bit3|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt2|mydff:bit2|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt2|mydff:bit1|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt2|mydff:bit0|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt1|mydff:bit4|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt1|mydff:bit3|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt1|mydff:bit2|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt1|mydff:bit1|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRt1|mydff:bit0|int_q                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit4|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit3|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit2|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit1|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit0|int_q                                 ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:signExtBuf|mydff:bit7|int_q                             ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:signExtBuf|mydff:bit6|int_q                             ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:signExtBuf|mydff:bit5|int_q                             ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:signExtBuf|mydff:bit4|int_q                             ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:signExtBuf|mydff:bit3|int_q                             ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:signExtBuf|mydff:bit2|int_q                             ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:signExtBuf|mydff:bit1|int_q                             ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:signExtBuf|mydff:bit0|int_q                             ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data2reg|mydff:bit7|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data2reg|mydff:bit6|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data2reg|mydff:bit5|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data2reg|mydff:bit4|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data2reg|mydff:bit3|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data2reg|mydff:bit2|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data2reg|mydff:bit1|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data2reg|mydff:bit0|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data1reg|mydff:bit7|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data1reg|mydff:bit6|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data1reg|mydff:bit5|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data1reg|mydff:bit4|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data1reg|mydff:bit3|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data1reg|mydff:bit2|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data1reg|mydff:bit1|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|enreg8bit:data1reg|mydff:bit0|int_q                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|mydff:MemToReg|int_q                                              ; Lost fanout        ;
+; buffer_ID_EX:inst4|mydff:RegWrite|int_q                                              ; Lost fanout        ;
+; buffer_ID_EX:inst4|mydff:MemWrite|int_q                                              ; Lost fanout        ;
+; buffer_ID_EX:inst4|mydff:MemRead|int_q                                               ; Lost fanout        ;
+; buffer_ID_EX:inst4|mydff:Branch|int_q                                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|mydff:ALUSrc|int_q                                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|mydff:ALUOp0|int_q                                                ; Lost fanout        ;
+; buffer_ID_EX:inst4|mydff:ALUOp1|int_q                                                ; Lost fanout        ;
+; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit7|int_q                                       ; Lost fanout        ;
+; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit6|int_q                                       ; Lost fanout        ;
+; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit5|int_q                                       ; Lost fanout        ;
+; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit4|int_q                                       ; Lost fanout        ;
+; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit3|int_q                                       ; Lost fanout        ;
+; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit2|int_q                                       ; Lost fanout        ;
+; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit1|int_q                                       ; Lost fanout        ;
+; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit0|int_q                                       ; Lost fanout        ;
+; Total Number of Removed Registers = 211                                              ;                    ;
++--------------------------------------------------------------------------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                      ;
++-------------------------------------------------------------------------------------+--------------------+---------------------------------------------------------------------------------------+
+; Register name                                                                       ; Reason for Removal ; Registers Removed due to This Register                                                ;
++-------------------------------------------------------------------------------------+--------------------+---------------------------------------------------------------------------------------+
+; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:0:reg32bit|int_q ; Lost Fanouts       ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:13:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:16:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:18:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:21:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:23:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:26:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:27:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:28:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:29:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:30:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:31:reg32bit|int_q, ;
+;                                                                                     ;                    ; buffer_MEM_WB:inst7|enreg5bit:destAddress|mydff:bit2|int_q,                           ;
+;                                                                                     ;                    ; buffer_MEM_WB:inst7|enreg5bit:destAddress|mydff:bit1|int_q,                           ;
+;                                                                                     ;                    ; buffer_MEM_WB:inst7|enreg5bit:destAddress|mydff:bit0|int_q,                           ;
+;                                                                                     ;                    ; buffer_MEM_WB:inst7|mydff:RegWrite|int_q,                                             ;
+;                                                                                     ;                    ; buffer_ID_EX:inst4|enreg5bit:addrRt1|mydff:bit2|int_q,                                ;
+;                                                                                     ;                    ; buffer_ID_EX:inst4|enreg5bit:addrRt1|mydff:bit1|int_q,                                ;
+;                                                                                     ;                    ; buffer_ID_EX:inst4|enreg5bit:addrRt1|mydff:bit0|int_q,                                ;
+;                                                                                     ;                    ; buffer_ID_EX:inst4|mydff:MemRead|int_q,                                               ;
+;                                                                                     ;                    ; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit6|int_q,                                       ;
+;                                                                                     ;                    ; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit5|int_q,                                       ;
+;                                                                                     ;                    ; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit4|int_q,                                       ;
+;                                                                                     ;                    ; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit3|int_q,                                       ;
+;                                                                                     ;                    ; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit2|int_q,                                       ;
+;                                                                                     ;                    ; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit1|int_q,                                       ;
+;                                                                                     ;                    ; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit0|int_q                                        ;
+; buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit7|int_q                            ; Lost Fanouts       ; IF_STAGE:inst|enreg8bit:if_pc|mydff:bit7|int_q                                        ;
+; buffer_EX_MEM:inst1|mydff:MemToReg|int_q                                            ; Lost Fanouts       ; buffer_ID_EX:inst4|mydff:MemToReg|int_q                                               ;
+; buffer_EX_MEM:inst1|mydff:RegWrite|int_q                                            ; Lost Fanouts       ; buffer_ID_EX:inst4|mydff:RegWrite|int_q                                               ;
+; buffer_EX_MEM:inst1|mydff:MemWrite|int_q                                            ; Lost Fanouts       ; buffer_ID_EX:inst4|mydff:MemWrite|int_q                                               ;
+; buffer_EX_MEM:inst1|mydff:Branch|int_q                                              ; Lost Fanouts       ; buffer_ID_EX:inst4|mydff:Branch|int_q                                                 ;
++-------------------------------------------------------------------------------------+--------------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                         ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                          ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                ;
++------------------------------------+----------------------+-----------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                             ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                             ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                      ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                      ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                      ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                             ;
+; WIDTH_B                            ; 1                    ; Untyped                                             ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                             ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                             ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                             ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                             ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                             ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                             ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                             ;
+; INIT_FILE                          ; instructionMem.mif   ; Untyped                                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                             ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                             ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                             ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                             ;
+; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped                                             ;
+; CBXI_PARAMETER                     ; altsyncram_89a1      ; Untyped                                             ;
++------------------------------------+----------------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                          ;
++------------------------------------+----------------------+-----------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                       ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                       ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WIDTH_B                            ; 1                    ; Untyped                                       ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                       ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                       ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; INIT_FILE                          ; dataMem.mif          ; Untyped                                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                       ;
+; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped                                       ;
+; CBXI_PARAMETER                     ; altsyncram_cbi1      ; Untyped                                       ;
++------------------------------------+----------------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                               ;
++-------------------------------------------+--------------------------------------------------------------------+
+; Name                                      ; Value                                                              ;
++-------------------------------------------+--------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                  ;
+; Entity Instance                           ; IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                ;
+;     -- WIDTH_A                            ; 32                                                                 ;
+;     -- NUMWORDS_A                         ; 256                                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                             ;
+;     -- WIDTH_B                            ; 1                                                                  ;
+;     -- NUMWORDS_B                         ; 1                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                          ;
+; Entity Instance                           ; MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component       ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                        ;
+;     -- WIDTH_A                            ; 8                                                                  ;
+;     -- NUMWORDS_A                         ; 256                                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                             ;
+;     -- WIDTH_B                            ; 1                                                                  ;
+;     -- NUMWORDS_B                         ; 1                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                          ;
++-------------------------------------------+--------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:0:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:1:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:2:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:3:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:4:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:5:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:6:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:7:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:8:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:9:reg32bit"        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:10:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:11:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:12:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:13:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:14:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:15:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:16:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:17:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:18:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:19:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:20:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:21:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:22:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:23:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:24:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:25:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:26:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:27:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:28:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:29:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:30:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg32bit:instruction32bits|mydff:\gen32bitreg:31:reg32bit"       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit9"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit8"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit7"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit6"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit5"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit4"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit3"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit2"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit1"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_IF_ID:inst2|enreg10bit:pc_plus_4|mydff:bit0"                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "EX_STAGE:inst6|alu8bit:myalu|mux8to1_8bit:mux" ;
++------+-------+----------+-------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                         ;
++------+-------+----------+-------------------------------------------------+
+; i_3  ; Input ; Info     ; Stuck at GND                                    ;
+; i_4  ; Input ; Info     ; Stuck at GND                                    ;
+; i_5  ; Input ; Info     ; Stuck at GND                                    ;
++------+-------+----------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "EX_STAGE:inst6|alu8bit:myalu|CLA_top2:suber"                                           ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; a[9..8] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b[9..8] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; op      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; s[9..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "EX_STAGE:inst6|alu8bit:myalu|CLA_top2:adder"                                           ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; a[9..8] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b[9..8] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; op      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; s[9..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|enreg5bit:destAddress" ;
++-------+-------+----------+--------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                    ;
++-------+-------+----------+--------------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                               ;
++-------+-------+----------+--------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|enreg8bit:writeData" ;
++-------+-------+----------+------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                  ;
++-------+-------+----------+------------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                             ;
++-------+-------+----------+------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|enreg8bit:aluResult" ;
++-------+-------+----------+------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                  ;
++-------+-------+----------+------------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                             ;
++-------+-------+----------+------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:aluZero"                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:MemToReg"                                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:RegWrite"                                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:MemWrite"                                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:MemRead"                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_EX_MEM:inst1|mydff:Branch"                                                     ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_MEM_WB:inst7|enreg5bit:destAddress" ;
++-------+-------+----------+--------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                    ;
++-------+-------+----------+--------------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                               ;
++-------+-------+----------+--------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_MEM_WB:inst7|enreg8bit:aluResult" ;
++-------+-------+----------+------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                  ;
++-------+-------+----------+------------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                             ;
++-------+-------+----------+------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_MEM_WB:inst7|enreg8bit:dataMemory" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_MEM_WB:inst7|mydff:MemToReg"                                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_MEM_WB:inst7|mydff:RegWrite"                                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "ID_STAGE:inst14|mux2to1_9bit:flushMux" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; i_1  ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ID_STAGE:inst14|CLA_top:brAdder"                                                       ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; b[1..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cin     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "ID_STAGE:inst14|registerFile:regFile" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRd" ;
++-------+-------+----------+--------------------------------------+
+; Port  ; Type  ; Severity ; Details                              ;
++-------+-------+----------+--------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                         ;
++-------+-------+----------+--------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRt2" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRt1" ;
++-------+-------+----------+---------------------------------------+
+; Port  ; Type  ; Severity ; Details                               ;
++-------+-------+----------+---------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                          ;
++-------+-------+----------+---------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit4"                                       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit3"                                       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit2"                                       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit1"                                       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs|mydff:bit0"                                       ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg5bit:addrRs" ;
++-------+-------+----------+--------------------------------------+
+; Port  ; Type  ; Severity ; Details                              ;
++-------+-------+----------+--------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                         ;
++-------+-------+----------+--------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg8bit:signExtBuf" ;
++-------+-------+----------+------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                  ;
++-------+-------+----------+------------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                             ;
++-------+-------+----------+------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg8bit:data2reg" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|enreg8bit:data1reg" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                           ;
++-------+-------+----------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:MemToReg"                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:RegWrite"                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:MemWrite"                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:MemRead"                                                     ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:Branch"                                                      ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:ALUSrc"                                                      ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:ALUOp0"                                                      ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:ALUOp1"                                                      ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buffer_ID_EX:inst4|mydff:RegDst"                                                      ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_clr  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|CLA_top:if_alu"                                                          ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; a[9..8] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b[9..3] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b[1..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b[2]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cin     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit7"                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit6"                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit5"                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit4"                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit3"                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit2"                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit1"                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit0"                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_set  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|enreg8bit:if_pc" ;
++-------+-------+----------+--------------------------------+
+; Port  ; Type  ; Severity ; Details                        ;
++-------+-------+----------+--------------------------------+
+; i_clr ; Input ; Info     ; Stuck at VCC                   ;
++-------+-------+----------+--------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IF_STAGE:inst|mux2to1_10bit:if_mux"                                                           ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; o_output[9..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Apr  9 09:11:20 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pipelined_processor -c lab3top
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file subtoptb.vhd
+    Info (12022): Found design unit 1: subtoptb-tb_rtl
+    Info (12023): Found entity 1: subtoptb
+Info (12021): Found 2 design units, including 1 entities, in source file subtop.vhd
+    Info (12022): Found design unit 1: subtop-subtop_rtl
+    Info (12023): Found entity 1: subtop
+Info (12021): Found 2 design units, including 1 entities, in source file registerFile.vhd
+    Info (12022): Found design unit 1: registerFile-regFile_rtl
+    Info (12023): Found entity 1: registerFile
+Info (12021): Found 2 design units, including 1 entities, in source file PartialAdder.vhd
+    Info (12022): Found design unit 1: PartialAdder-struct
+    Info (12023): Found entity 1: PartialAdder
+Info (12021): Found 2 design units, including 1 entities, in source file mytff.vhd
+    Info (12022): Found design unit 1: mytff-rtl
+    Info (12023): Found entity 1: mytff
+Info (12021): Found 2 design units, including 1 entities, in source file mydff.vhd
+    Info (12022): Found design unit 1: mydff-rtl
+    Info (12023): Found entity 1: mydff
+Info (12021): Found 2 design units, including 1 entities, in source file mux8to1_8bit.vhd
+    Info (12022): Found design unit 1: mux8to1_8bit-mux8rtl
+    Info (12023): Found entity 1: mux8to1_8bit
+Info (12021): Found 2 design units, including 1 entities, in source file mux2to1_10bit.vhd
+    Info (12022): Found design unit 1: mux2to1_10bit-mux2rtl
+    Info (12023): Found entity 1: mux2to1_10bit
+Info (12021): Found 2 design units, including 1 entities, in source file mux2to1_9bit.vhd
+    Info (12022): Found design unit 1: mux2to1_9bit-mux2rtl
+    Info (12023): Found entity 1: mux2to1_9bit
+Info (12021): Found 2 design units, including 1 entities, in source file mux2to1_8bit.vhd
+    Info (12022): Found design unit 1: mux2to1_8bit-mux2rtl
+    Info (12023): Found entity 1: mux2to1_8bit
+Info (12021): Found 2 design units, including 1 entities, in source file mux2to1_3bit.vhd
+    Info (12022): Found design unit 1: mux2to1_3bit-mux2rtl
+    Info (12023): Found entity 1: mux2to1_3bit
+Info (12021): Found 1 design units, including 1 entities, in source file lab3top.bdf
+    Info (12023): Found entity 1: lab3top
+Info (12021): Found 2 design units, including 1 entities, in source file instMemory.vhd
+    Info (12022): Found design unit 1: instmemory-SYN
+    Info (12023): Found entity 1: instMemory
+Info (12021): Found 2 design units, including 1 entities, in source file IF_STAGE.vhd
+    Info (12022): Found design unit 1: IF_STAGE-if_rtl
+    Info (12023): Found entity 1: IF_STAGE
+Info (12021): Found 2 design units, including 1 entities, in source file ID_STAGE.vhd
+    Info (12022): Found design unit 1: id_STAGE-id_rtl
+    Info (12023): Found entity 1: ID_STAGE
+Info (12021): Found 3 design units, including 1 entities, in source file forwardingUnit.vhd
+    Info (12022): Found design unit 1: forwardingUnit-rtl
+    Info (12022): Found design unit 2: forwardingUnit-behav
+    Info (12023): Found entity 1: forwardingUnit
+Info (12021): Found 2 design units, including 1 entities, in source file enreg32bit.vhd
+    Info (12022): Found design unit 1: enreg32bit-enreg_rtl
+    Info (12023): Found entity 1: enreg32bit
+Info (12021): Found 2 design units, including 1 entities, in source file enreg10bit.vhd
+    Info (12022): Found design unit 1: enreg10bit-enreg_rtl
+    Info (12023): Found entity 1: enreg10bit
+Info (12021): Found 2 design units, including 1 entities, in source file enreg8bit.vhd
+    Info (12022): Found design unit 1: enreg8bit-enreg_rtl
+    Info (12023): Found entity 1: enreg8bit
+Info (12021): Found 2 design units, including 1 entities, in source file enreg5bit.vhd
+    Info (12022): Found design unit 1: enreg5bit-enreg_rtl
+    Info (12023): Found entity 1: enreg5bit
+Info (12021): Found 2 design units, including 1 entities, in source file decoder3to8.vhd
+    Info (12022): Found design unit 1: decoder3to8-decrtl
+    Info (12023): Found entity 1: decoder3to8
+Info (12021): Found 2 design units, including 1 entities, in source file ControlUnit.vhd
+    Info (12022): Found design unit 1: ControlUnit-rtl
+    Info (12023): Found entity 1: ControlUnit
+Info (12021): Found 2 design units, including 1 entities, in source file CLA_top2.vhd
+    Info (12022): Found design unit 1: CLA_top2-struct
+    Info (12023): Found entity 1: CLA_top2
+Info (12021): Found 2 design units, including 1 entities, in source file CLA_top.vhd
+    Info (12022): Found design unit 1: CLA_top-struct
+    Info (12023): Found entity 1: CLA_top
+Info (12021): Found 2 design units, including 1 entities, in source file buffer_MEM_WB.vhd
+    Info (12022): Found design unit 1: buffer_MEM_WB-rtl
+    Info (12023): Found entity 1: buffer_MEM_WB
+Info (12021): Found 2 design units, including 1 entities, in source file buffer_IF_ID.vhd
+    Info (12022): Found design unit 1: buffer_IF_ID-rtl
+    Info (12023): Found entity 1: buffer_IF_ID
+Info (12021): Found 2 design units, including 1 entities, in source file buffer_ID_EX.vhd
+    Info (12022): Found design unit 1: buffer_ID_EX-rtl
+    Info (12023): Found entity 1: buffer_ID_EX
+Info (12021): Found 2 design units, including 1 entities, in source file buffer_EX_MEM.vhd
+    Info (12022): Found design unit 1: buffer_EX_MEM-rtl
+    Info (12023): Found entity 1: buffer_EX_MEM
+Info (12021): Found 2 design units, including 1 entities, in source file ALUCtrlUnit.vhd
+    Info (12022): Found design unit 1: ALUCtrlUnit-rtl
+    Info (12023): Found entity 1: ALUCtrlUnit
+Info (12021): Found 2 design units, including 1 entities, in source file alu8bit.vhd
+    Info (12022): Found design unit 1: alu8bit-alu8b_rtl
+    Info (12023): Found entity 1: alu8bit
+Info (12021): Found 2 design units, including 1 entities, in source file mux3to1_8bit.vhd
+    Info (12022): Found design unit 1: mux3to1_8bit-mux3rtl
+    Info (12023): Found entity 1: mux3to1_8bit
+Info (12021): Found 2 design units, including 1 entities, in source file EX_STAGE.vhd
+    Info (12022): Found design unit 1: EX_STAGE-ex_rtl
+    Info (12023): Found entity 1: EX_STAGE
+Info (12021): Found 2 design units, including 1 entities, in source file mux2to1_5bit.vhd
+    Info (12022): Found design unit 1: mux2to1_5bit-mux2rtl
+    Info (12023): Found entity 1: mux2to1_5bit
+Info (12021): Found 2 design units, including 1 entities, in source file datamem.vhd
+    Info (12022): Found design unit 1: datamem-SYN
+    Info (12023): Found entity 1: datamem
+Info (12021): Found 2 design units, including 1 entities, in source file MEM_STAGE.vhd
+    Info (12022): Found design unit 1: Mem_STAGE-mem_rtl
+    Info (12023): Found entity 1: MEM_STAGE
+Info (12021): Found 2 design units, including 1 entities, in source file hazardDetect.vhd
+    Info (12022): Found design unit 1: hazardDetect-hdu_rtl
+    Info (12023): Found entity 1: hazardDetect
+Info (12127): Elaborating entity "lab3top" for the top level hierarchy
+Info (12128): Elaborating entity "IF_STAGE" for hierarchy "IF_STAGE:inst"
+Warning (10540): VHDL Signal Declaration warning at IF_STAGE.vhd(55): used explicit default value for signal "four" because signal was never assigned a value
+Info (12128): Elaborating entity "mux2to1_10bit" for hierarchy "IF_STAGE:inst|mux2to1_10bit:if_mux"
+Info (12128): Elaborating entity "enreg8bit" for hierarchy "IF_STAGE:inst|enreg8bit:if_pc"
+Info (12128): Elaborating entity "mydff" for hierarchy "IF_STAGE:inst|enreg8bit:if_pc|mydff:bit0"
+Info (12128): Elaborating entity "CLA_top" for hierarchy "IF_STAGE:inst|CLA_top:if_alu"
+Info (12128): Elaborating entity "PartialAdder" for hierarchy "IF_STAGE:inst|CLA_top:if_alu|PartialAdder:PA0"
+Info (12128): Elaborating entity "instMemory" for hierarchy "IF_STAGE:inst|instMemory:if_memory"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "instructionMem.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_89a1.tdf
+    Info (12023): Found entity 1: altsyncram_89a1
+Info (12128): Elaborating entity "altsyncram_89a1" for hierarchy "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated"
+Info (12128): Elaborating entity "hazardDetect" for hierarchy "hazardDetect:inst13"
+Warning (10036): Verilog HDL or VHDL warning at hazardDetect.vhd(20): object "int_MEM_WB_WriteReg_eq_IF_ID_rs" assigned a value but never read
+Info (12128): Elaborating entity "buffer_ID_EX" for hierarchy "buffer_ID_EX:inst4"
+Info (12128): Elaborating entity "enreg5bit" for hierarchy "buffer_ID_EX:inst4|enreg5bit:addrRs"
+Info (12128): Elaborating entity "ID_STAGE" for hierarchy "ID_STAGE:inst14"
+Warning (10540): VHDL Signal Declaration warning at ID_STAGE.vhd(93): used explicit default value for signal "flush" because signal was never assigned a value
+Info (12128): Elaborating entity "registerFile" for hierarchy "ID_STAGE:inst14|registerFile:regFile"
+Info (12128): Elaborating entity "decoder3to8" for hierarchy "ID_STAGE:inst14|registerFile:regFile|decoder3to8:dec"
+Info (12128): Elaborating entity "mux8to1_8bit" for hierarchy "ID_STAGE:inst14|registerFile:regFile|mux8to1_8bit:muxReg1"
+Info (12128): Elaborating entity "mux2to1_8bit" for hierarchy "ID_STAGE:inst14|registerFile:regFile|mux8to1_8bit:muxReg1|mux2to1_8bit:mux01"
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ID_STAGE:inst14|ControlUnit:ctlUnit"
+Info (12128): Elaborating entity "mux2to1_9bit" for hierarchy "ID_STAGE:inst14|mux2to1_9bit:flushMux"
+Info (12128): Elaborating entity "buffer_MEM_WB" for hierarchy "buffer_MEM_WB:inst7"
+Info (12128): Elaborating entity "MEM_STAGE" for hierarchy "MEM_STAGE:inst3"
+Warning (10541): VHDL Signal Declaration warning at MEM_STAGE.vhd(14): used implicit default value for signal "o_dataBypass" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "datamem" for hierarchy "MEM_STAGE:inst3|datamem:dmem"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "dataMem.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV GX"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_cbi1.tdf
+    Info (12023): Found entity 1: altsyncram_cbi1
+Info (12128): Elaborating entity "altsyncram_cbi1" for hierarchy "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated"
+Info (12128): Elaborating entity "buffer_EX_MEM" for hierarchy "buffer_EX_MEM:inst1"
+Info (12128): Elaborating entity "EX_STAGE" for hierarchy "EX_STAGE:inst6"
+Warning (10541): VHDL Signal Declaration warning at EX_STAGE.vhd(20): used implicit default value for signal "o_writeData" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at EX_STAGE.vhd(60): used implicit default value for signal "functField" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "ALUCtrlUnit" for hierarchy "EX_STAGE:inst6|ALUCtrlUnit:aluCtl"
+Info (12128): Elaborating entity "mux3to1_8bit" for hierarchy "EX_STAGE:inst6|mux3to1_8bit:topMux3to1"
+Info (12128): Elaborating entity "alu8bit" for hierarchy "EX_STAGE:inst6|alu8bit:myalu"
+Warning (10540): VHDL Signal Declaration warning at alu8bit.vhd(31): used explicit default value for signal "zeros" because signal was never assigned a value
+Info (12128): Elaborating entity "CLA_top2" for hierarchy "EX_STAGE:inst6|alu8bit:myalu|CLA_top2:adder"
+Info (12128): Elaborating entity "forwardingUnit" for hierarchy "forwardingUnit:inst9"
+Info (12128): Elaborating entity "mux2to1_8bit" for hierarchy "mux2to1_8bit:inst10"
+Info (12128): Elaborating entity "mux2to1_5bit" for hierarchy "mux2to1_5bit:inst8"
+Info (12128): Elaborating entity "buffer_IF_ID" for hierarchy "buffer_IF_ID:inst2"
+Info (12128): Elaborating entity "enreg10bit" for hierarchy "buffer_IF_ID:inst2|enreg10bit:pc_plus_4"
+Info (12128): Elaborating entity "enreg32bit" for hierarchy "buffer_IF_ID:inst2|enreg32bit:instruction32bits"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "MEM_STAGE:inst3|datamem:dmem|altsyncram:altsyncram_component|altsyncram_cbi1:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[31]"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "IF_STAGE:inst|instMemory:if_memory|altsyncram:altsyncram_component|altsyncram_89a1:auto_generated|q_a[10]"
+Info (17049): 211 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "i_clk"
+    Warning (15610): No output dependent on input pin "i_clr"
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 55 warnings
+    Info: Peak virtual memory: 414 megabytes
+    Info: Processing ended: Sun Apr  9 09:11:21 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

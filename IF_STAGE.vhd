@@ -68,11 +68,12 @@ begin
 		if_mux:mux2to1_10bit port map(aluout, i_brAdd, i_branchMux, muxout);	
 	-- PC REGISTER
 		pcin <= muxout(7 downto 0);
-		if_pc:enreg8bit port map (pcin, i_pcEn, i_clk, clr,  pcout);
+		if_pc:enreg8bit port map (pcin, i_pcEn, i_clk, clr,  pcout(7 downto 0));
+		pcout(9 downto 8) <= "00";
 	-- ALU
 		if_alu:CLA_top port map (pcout, four, '0', aluout);
 	-- LPM ROM
-		if_memory:instMemory port map(pcout, i_clk, instr);
+		if_memory:instMemory port map(pcout(7 downto 0), i_clk, instr);
 	-- OUTPUT DRIVERS (IF NEEDED)
 		o_pcplus4 <= aluout;
 		o_instruction <= instr;

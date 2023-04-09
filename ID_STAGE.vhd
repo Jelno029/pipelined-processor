@@ -13,18 +13,17 @@ port(
 		
 		i_clk				: in std_logic;
 		
-		o_hdu_opcode	: out std_logic_vector(6 downto 0);
+		o_hdu_opcode	: out std_logic_vector(5 downto 0);
 		o_hdu_regeq		: out std_logic;
 		
 		o_ctl_wb			: out std_logic_vector(1 downto 0);
 		o_ctl_m			: out std_logic_vector(2 downto 0);
 		o_ctl_ex			: out std_logic_vector(3 downto 0);
-		
-		
 		o_readData1		: out std_logic_vector(7 downto 0);
 		o_readData2		: out std_logic_vector(7 downto 0);
 		o_signExt		: out std_logic_vector(7 downto 0);
-		o_rs,o_rt,o_rd : out std_logic_vector(4 downto 0)); -- ! RT will connect to two inputs in the next buffer !
+		o_rs,o_rt,o_rd : out std_logic_vector(4 downto 0);
+		o_branchAddress: out std_logic_vector(9 downto 0)); -- ! RT will connect to two inputs in the next buffer !
 end ID_STAGE;
 		--o_ex_RegDst		: out std_logic;
 		--o_ex_ALUOp1		: out std_logic;
@@ -87,7 +86,8 @@ signal afSignExt	:	std_logic_vector(7 downto 0);	-- inst(7-0)
 signal afShifted	:	std_logic_vector(9 downto 0);	-- rdSignExt shift twice to the left
 signal readData1	:	std_logic_vector(7 downto 0);
 signal readData2	:	std_logic_vector(7 downto 0);
-signal clr, regEqual	:	std_logic;
+signal clr			:  std_logic := '0';
+signal regEqual	:	std_logic;
 signal branchAddress :	std_logic_vector(9 downto 0);
 signal ctlVector	: std_logic_vector(8 downto 0);
 signal flush		: std_logic_vector(8 downto 0):= "000000000";
@@ -95,8 +95,7 @@ signal flushOut	: std_logic_vector(8 downto 0);
 signal compData	: std_logic_vector(7 downto 0);
 
 begin
-clr <= '1'; 
-clr <= '0' after 2 ns;
+clr <= '1' after 2 ns; 
 -- Separate the Instruction:
 opcode <= i_instruction(31 downto 26);
 rs <= i_instruction(25 downto 21);
@@ -113,7 +112,7 @@ afShifted(9 downto 2) <= afSignExt;
 afShifted(1 downto 0) <= "00";
 
 -- register file:
-regFile:registerFile	 port map (i_writeEn, readReg1, readReg2, i_writeReg, i_writeData, i_clk, clr, readData1, readData2);
+regFile:registerFile	 port map (i_writeEn, readReg1, readReg2, i_writeReg(2 downto 0), i_writeData, i_clk, clr, readData1, readData2);
 -- adder:
 brAdder:CLA_top 		 port map (i_pcplus4, afShifted, '0', branchAddress);
 -- control unit:
@@ -140,5 +139,7 @@ regEqual <= not(compData(7) or compData(6) or compData(5) or compData(4) or comp
 		o_rs				<= rs;
 		o_rt				<= rt;
 		o_rd				<= rd;
+		
+		o_branchAddress <= branchAddress;
 
 end id_rtl;
